@@ -1,0 +1,200 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 0%;
+  --foreground: 0 0% 100%;
+  --card: 0 0% 4%;
+  --card-foreground: 0 0% 100%;
+  --popover: 0 0% 4%;
+  --popover-foreground: 0 0% 100%;
+  --primary: 203 89% 53%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 0 0% 13%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 0 0% 13%;
+  --muted-foreground: 215 20.2% 65.1%;
+  --accent: 0 0% 13%;
+  --accent-foreground: 0 0% 100%;
+  --border: 0 0% 13%;
+  --input: 0 0% 13%;
+  --ring: 203 89% 53%;
+  --radius: 0.5rem;
+}
+
+body {
+  @apply min-h-screen text-foreground;
+  background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+}
+
+.gradient-heading {
+  background: linear-gradient(135deg, #ffffff 0%, #e0e0e0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.metallic-button {
+  @apply rounded-lg;
+  background: linear-gradient(145deg, #2a2a2a 0%, #1a1a1a 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2),
+              inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  transition: all 0.2s ease;
+}
+
+.metallic-button:hover {
+  background: linear-gradient(145deg, #3a3a3a 0%, #2a2a2a 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3),
+              inset 0 1px 1px rgba(255, 255, 255, 0.2);
+}
+
+.metallic-button:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2),
+              inset 0 1px 1px rgba(255, 255, 255, 0.1);
+}
+
+.copy-button {
+  @apply text-white font-medium;
+  background: linear-gradient(145deg, #2a2a2a 0%, #1a1a1a 100%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2),
+              inset 0 1px 1px rgba(255, 255, 255, 0.1);
+}
+
+.copy-button:hover {
+  background: linear-gradient(145deg, #3a3a3a 0%, #2a2a2a 100%);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3),
+              inset 0 1px 1px rgba(255, 255, 255, 0.2);
+}
+
+.section-title {
+  @apply text-2xl font-semibold mb-6 mt-12 flex items-center gap-2;
+}
+
+.input-label {
+  @apply flex items-center gap-2 text-sm font-medium mb-2;
+}
+
+.input-icon {
+  @apply w-4 h-4 text-muted-foreground;
+}
+
+.form-input {
+  @apply w-full bg-secondary rounded-lg px-4 focus:ring-2 focus:ring-primary outline-none;
+  height: 42px;
+  box-sizing: border-box;
+  margin: 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.react-datepicker {
+  @apply bg-card border border-border rounded-lg !important;
+}
+
+.react-datepicker__header {
+  @apply bg-muted border-border rounded-t-lg !important;
+}
+
+.react-datepicker__current-month,
+.react-datepicker__day-name,
+.react-datepicker__day {
+  @apply text-foreground !important;
+}
+
+.react-datepicker__day:hover {
+  @apply bg-primary text-primary-foreground rounded !important;
+}
+
+.react-datepicker__day--selected {
+  @apply bg-primary text-primary-foreground rounded !important;
+}
+
+.react-datepicker__day--keyboard-selected {
+  @apply bg-primary/50 text-primary-foreground rounded !important;
+}
+
+/* Range Slider Styles */
+.range-slider {
+  @apply w-full h-2 bg-secondary rounded-full appearance-none cursor-pointer;
+}
+
+.range-slider::-webkit-slider-thumb {
+  @apply w-4 h-4 bg-primary rounded-full appearance-none cursor-pointer;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.range-slider::-moz-range-thumb {
+  @apply w-4 h-4 bg-primary rounded-full appearance-none cursor-pointer;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Toast Notification */
+.toast {
+  @apply fixed bottom-4 right-4 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg;
+  animation: slideIn 0.3s ease-out, fadeOut 0.3s ease-in 2s forwards;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* Language Selector */
+.language-selector {
+  @apply relative w-full;
+  margin: 0;
+  display: block;
+}
+
+.language-selector button {
+  @apply w-full bg-secondary rounded-lg px-4 py-2 text-left flex justify-between items-center;
+  height: 42px;
+  box-sizing: border-box;
+  margin: 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.language-selector button:focus {
+  @apply ring-2 ring-primary outline-none;
+}
+
+/* Language Options */
+.language-options {
+  @apply absolute w-full mt-1 bg-secondary border border-border rounded-lg shadow-lg max-h-60 overflow-y-auto z-10;
+  top: 100%;
+  left: 0;
+}
+
+.language-option {
+  @apply px-4 py-2 hover:bg-primary/10 cursor-pointer flex justify-between items-center;
+}
+
+.language-option span:last-child {
+  @apply text-muted-foreground text-sm;
+}
